@@ -94,12 +94,6 @@ monorepo/
 ### Personal — Perfil do Aluno
 ![Perfil do Cliente](screenshots/04-personal-perfil-cliente.png)
 
-### Personal — Acesso Rápido (Dashboard)
-![Acesso Rápido](screenshots/05-personal-acesso-rapido.png)
-
-### Personal — Agenda
-![Agenda](screenshots/06-personal-agenda.png)
-
 ### Personal — Treino Assistido (Início de Sessão)
 ![Treino Assistido Início](screenshots/07-personal-treino-assistido-inicio.png)
 
