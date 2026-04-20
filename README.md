@@ -17,9 +17,9 @@
 | **Back-end** | Java 17 · Spring Boot 3 · Spring Security · JWT · JPA/Hibernate · Flyway · Maven |
 | **Front-end Web** | React 18 · TypeScript · Vite · Chakra UI · Tailwind CSS |
 | **Mobile** | React Native · Expo SDK · APK Android |
-| **Banco de Dados** | MySQL · 47 tabelas · 92 migrações versionadas via Flyway |
-| **Cloud** | AWS EC2 (back-end) · AWS RDS (banco) · AWS S3 (mídias/vídeos) |
-| **Infra** | Nginx · Caddy · Docker |
+| **Banco de Dados** | MySQL · 47 tabelas · 204 migrações versionadas via Flyway |
+| **Cloud** | AWS EC2 (back-end) · AWS S3 (mídias/vídeos) |
+| **Infra** | Nginx · Docker · CI/CD pipeline (GitHub Actions → EC2) |
 | **Integrações** | Stripe (pagamentos, Connect, Webhooks) · WebSocket STOMP · Gmail SMTP |
 | **API** | REST · Swagger/OpenAPI · Autenticação JWT + Guest Token |
 
@@ -38,8 +38,9 @@
 - **Agenda** com visualização mensal/semanal/lista, disponibilidade configurável e agendamentos
 - **Treino Assistido** em tempo real via WebSocket (STOMP): seleciona aluno, escolhe plano ou monta na hora
 - **Integração Stripe Connect**: onboarding bancário, recebimento de pagamentos no marketplace
-- **Receitas e relatórios** financeiros
-- **Mensagens** diretas com alunos
+- **Histórico financeiro** com receita mensal, total, ticket médio e listagem de transações
+- **Network B2B**: busca e conexão entre Personal Trainers e Nutricionistas
+- **Mensagens** diretas com alunos e profissionais parceiros
 
 ### Perfil Aluno
 
@@ -55,29 +56,16 @@
 
 - **RBAC com 5 perfis**: PERSONAL · NUTRITIONIST · CLIENT · ADMIN · GUEST
 - **Sessões para convidados** via QR Code (token JWT separado, sem necessidade de cadastro)
-- **Flyway**: 92 migrações versionadas garantindo integridade em todos os ambientes
+- **Flyway**: 204 migrações versionadas garantindo integridade em todos os ambientes
+- **Pipeline CI/CD**: GitHub Actions com pre-flight de schema, build, testes e deploy automático na EC2
 - **Stripe Webhooks**: processamento assíncrono de eventos de pagamento
-- **Swagger UI** em `/swagger-ui.html` com documentação completa da API
+- **Swagger UI** em  com documentação completa da API
 
 ---
 
 ## Arquitetura
 
-```
-monorepo/
-├── srcBackend/          # Spring Boot — controllers, services, entities, repositories
-│   ├── security/        # Spring Security + JWT + Guest token
-│   ├── stripe/          # Stripe Connect, pagamentos, webhooks
-│   ├── websocket/       # STOMP — sessões assistidas em tempo real
-│   └── flyway/          # 92 migrações versionadas
-├── frontend/            # React 18 + TypeScript (Vite)
-│   └── srcWeb/
-│       ├── pages/       # ~40 páginas (Personal, Client, Admin, Public)
-│       ├── routes/      # AppRoutes com ProtectedRoute por perfil
-│       └── contexts/    # AuthContext, WebSocket context
-└── mobile/              # React Native + Expo SDK
-```
-
+\
 ---
 
 ## Screenshots
@@ -94,6 +82,9 @@ monorepo/
 ### Personal — Perfil do Aluno
 ![Perfil do Cliente](screenshots/04-personal-perfil-cliente.png)
 
+### Personal — Agenda (Calendário Mensal)
+![Agenda](screenshots/06-personal-agenda.png)
+
 ### Personal — Treino Assistido (Início de Sessão)
 ![Treino Assistido Início](screenshots/07-personal-treino-assistido-inicio.png)
 
@@ -102,6 +93,18 @@ monorepo/
 
 ### Personal — Planos de Treino
 ![Planos de Treino](screenshots/09-personal-planos-treino.png)
+
+### Personal — Biblioteca de Exercícios
+![Biblioteca de Exercícios](screenshots/14-biblioteca-exercicios.png)
+
+### Personal — Templates de Treino
+![Templates de Treino](screenshots/15-templates-treino.png)
+
+### Personal — Histórico Financeiro
+![Histórico Financeiro](screenshots/17-financeiro.png)
+
+### Network — Encontre Profissionais
+![Network](screenshots/16-network.png)
 
 ### Aluno — Dashboard
 ![Dashboard Aluno](screenshots/10-aluno-dashboard.png)
