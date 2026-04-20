@@ -76,23 +76,8 @@
 ### Personal — Dashboard
 ![Dashboard Personal](screenshots/02-personal-dashboard.png)
 
-### Personal — Gestão de Clientes
-![Clientes](screenshots/03-personal-clientes.png)
-
-### Personal — Perfil do Aluno
-![Perfil do Cliente](screenshots/04-personal-perfil-cliente.png)
-
 ### Personal — Agenda (Calendário Mensal)
 ![Agenda](screenshots/06-personal-agenda.png)
-
-### Personal — Treino Assistido (Início de Sessão)
-![Treino Assistido Início](screenshots/07-personal-treino-assistido-inicio.png)
-
-### Personal — Treino Assistido (Configuração)
-![Treino Assistido Form](screenshots/08-personal-treino-assistido-form.png)
-
-### Personal — Planos de Treino
-![Planos de Treino](screenshots/09-personal-planos-treino.png)
 
 ### Personal — Biblioteca de Exercícios
 ![Biblioteca de Exercícios](screenshots/14-biblioteca-exercicios.png)
